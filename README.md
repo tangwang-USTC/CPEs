@@ -1,2 +1,1 @@
-Nonlinear solver for 0D-1V Vlasov-Fokker-Planck (VFP) equation. NLVFP is used to study the nonlinear evolution of homogeneous plasma with
-spherically symmetric velocity space.
+Character Perameter Equations (CPEs) for VFP eqation that expanded with spherical harmonic and King function. VFP is used to study the nonlinear evolution of homogeneous plasma with spherically symmetric velocity space.
