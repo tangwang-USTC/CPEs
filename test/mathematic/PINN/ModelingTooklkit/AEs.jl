@@ -8,6 +8,8 @@ using ModelingToolkit: t_nounits as tn
 @variables x(tn) y(tn) z(tn)
 # Dt = Differential(tn)
 
+eqs = [0 ~ σ*(y-x)]
+
 eqs = [0 ~ σ*(y-x),
        0 ~ x*(ρ-z)-y,
        0 ~ x*y - β*z]
