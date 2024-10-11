@@ -10,11 +10,11 @@ pknames6 = ["ForwardDiff", "FiniteDifferences"]
 pknames7 = ["Loess","Dierckx", "DataInterpolations", "NumericalIntegration","SmoothingSplines"]
 pknames8 = ["OrdinaryDiffEq","DifferentialEquations","DifferentialEquations","DiffEqCallbacks","IterativeSolvers","NLsolve"]
 pknames9 = ["Latexify","LaTeXStrings","Clustering","KahanSummation"]  # LaTeXStrings
-pknames10 = ["StableRNGs","Distances","ModelingToolkit","DataDrivenDiffEq"]
+pknames10 = ["StableRNGs","Distances","ModelingToolkit","DataDrivenDiffEq","LsqFit"]
 pknames = [pknames1; pknames2; pknames3;pknames4; pknames5;pknames6;pknames7;pknames8;pknames9;pknames10]
 # pknames = [pknames4; pknames5;pknames6;pknames7;pknames8]
 # pknames = [pknames9]
-# pknames = ["StableRNGs"]
+pknames = ["LsqFit"]
 for pkname in pknames
     import Pkg; Pkg.add(pkname)
 end

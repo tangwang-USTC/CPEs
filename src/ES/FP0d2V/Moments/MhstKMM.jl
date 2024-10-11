@@ -1,10 +1,22 @@
 
 """
+  The normalzied kinetic moments for shell-less quasi-equilibrium state plasma 
+    when the velocity space exhibits spherical symmetry without shell structure.
+    When the zeroth-order amplitude of the normalized distribution function, `f̂₀(v̂)`, is approximated by the MMM, 
+    the `jᵗʰ`-order kinetic moment can be expressed as:
+  
+        `𝓜ⱼ(f̂₀) = 4π * ∫₀^∞(v̂ʲ⁺² * f̂₀) dv̂`
+
+  If `is_renorm == true`,
+
+    𝓜ⱼ(f̂₀) = 2 / √π * Γ((j+3)/2) , j ∈ {(2jₚ - 2) | jₚ ∈ [0,N⁺]}
+  else
+  end
+
   In theory, the first `jᵗʰ`-order re-normalzied moment of the first `ℓᵗʰ`-order
   coefficient of the normal distribution function `f̂ₗ(v̂)` is:
 
     Msnnt(j) = 𝓜ⱼ(f̂ₗ(v̂)) = 4π * ∫₀^∞(v̂ʲ⁺² * f̂ₗ(v̂)) dv̂
-    Msnnt(2) = 𝓜₂(f̂₀(v̂)) = 2π * ∫₀^∞(v̂ʲ⁺² * f̂ₗ(v̂)) dv̂
 
   Where
 

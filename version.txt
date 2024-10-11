@@ -1,6 +1,6 @@
   This version has been updated according to the following features:
    
-  1.  
+  1.  Reconstruct the procedure of Characteristic Parameter Equations (CPEs) for NLVFP code.
 
 Todo list:
   

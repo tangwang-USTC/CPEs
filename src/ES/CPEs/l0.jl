@@ -98,7 +98,7 @@ function CPE0D1V(Mhj0::T, nh::AbstractVector{T}, vhth::AbstractVector{T}, j::Int
             eqs = [ 0 ~ sum(nh .* vhth .^ j) - Mhj0]
         end
     else
-        error("Procedure is to be completed!")
+        error("Procedure is to be completed when 'j' is odd!")
     end
     return eqs
 end

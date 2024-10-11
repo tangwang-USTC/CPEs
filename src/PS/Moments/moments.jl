@@ -9,7 +9,6 @@ include("Rcs.jl")
 include("Msnnorm.jl")        # The single sublevel version of moments.
 include("MsrnEven.jl")
 include("dtMstfL0.jl")
-include("momentCoeffs.jl")
 
 include("nIKhs.jl")
 include("nIKs.jl")

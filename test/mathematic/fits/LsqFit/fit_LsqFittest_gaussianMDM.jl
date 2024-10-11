@@ -29,7 +29,7 @@ using LsqFit
            Notes that `MIN_DIAGONAL = 1e-6` donotes lower bound on values of diagonal matrix used to regularize the trust region step
 
     dx:: = copy(delta_x) which is limited by `x_tol` and will be updated according to:
-          delta_x = ( J'*J + lambda * Diagonal(DtD) ) \ ( -J'*value(df) )
+          delta_x = ( J'*J + lambda * Diagonal(DtD) ) / ( -J'*value(df) )
 
 """
 
