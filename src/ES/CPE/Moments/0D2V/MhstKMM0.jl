@@ -134,7 +134,7 @@ end
 
 """
 
-# 0.5D, []
+# 0D, []
 function MhsKMM0(j::Int64,nai::T,uai::T,vthi::T;
     is_renorm::Bool=true,rtol_OrjL::T=1e-10,mathtype::Symbol=:Exact) where{T}
     
@@ -173,7 +173,9 @@ function MhsKMM0(j::Int64,nai::T,uai::T,vthi::T;
                 uhh = uai/vthi 
                 if j == -2
                     if mathtype == :Exact
+                        ddbhbhh
                     elseif mathtype == :Taylor0
+                        dhbdhn
                     else
                         ygtrttt
                         if mathtype == :Taylor1
@@ -183,6 +185,7 @@ function MhsKMM0(j::Int64,nai::T,uai::T,vthi::T;
                         end
                     end
                 else
+                    # @show j
                     a = 1.0 |> T
                     for k in 1:Int(j/2)
                         a += CjLk(T(j),T(k)) * (uhh)^(2k)
@@ -259,6 +262,7 @@ function MhsKMM0(j::Int,uai::T;is_renorm::Bool=true,rtol_OrjL::T=1e-10,mathtype:
                     end
                 end
             else
+                # @show j
                 a = 1.0  |> T
                 for k in 1:Int(j/2) 
                     a += CjLk(T(j),T(k)) * uai^(2k)

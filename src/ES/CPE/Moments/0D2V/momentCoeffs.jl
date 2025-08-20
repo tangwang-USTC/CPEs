@@ -90,10 +90,19 @@ end
   Coefficient of the Characteristic Parameter Equations (CPEs)
   when `f̂₀(v̂)` is approximated by the KMM:
 
-  `iseven(j) == true`
+  `iseven(j) == true` where `k=0:(j-L)/2`
+
+  Inputs:
+    j:
+    L:
+    k:  where `k=0:(j-L)/2`
+    
+  Outputs:
+    cjLk = CjLk(j,L,k)
+    cjLk = CjLk(j,k)
 """
 
-# CjLk(j::Int,L::Int,k::Int) = 2^k * binomial(Int((j-L)/2),k) / prod((2L+3):2:(2(L+k)+1)) 
+# CjLk(j::Int,L::Int,k::Int) = 2^k * binomial(Int((j-L)/2),k) / prod((2L+3):2:(2(L+k)+1))  where `k=0:(j-L)/2`
 
 function CjLk(j::T,L::T,k::AbstractVector{T}) where {T<:Real}
 
@@ -108,7 +117,7 @@ function CjLk(j::T,L::T,k::AbstractVector{T}) where {T<:Real}
     end
 end
 
-# For `ReverseDiff.jl`
+# For `ReverseDiff.jl` where `k=0:(j-L)/2`
 function CjLk(j::T,L::T,k) where {T<:Real}
 
     if L == 0
@@ -136,14 +145,27 @@ function CjLk(j::T,L::T,k::T) where {T<:Real}
 end
 
 # `L = 0`
-# CjLk(j::Int,k::Int) = 2^k * binomial(Int(j/2),k) / prod(3:2:(2k+1))
+# CjLk(j::Int,k::Int) = 2^k * binomial(Int(j/2),k) / prod(3:2:(2k+1)) where `k=0:j/2`
 function CjLk(j::T,k::T) where {T<:Real}
 
     if j == 0
-        return (1 / gamma(1 - k)) * ((sqrtpi / 2) / gamma(1.5 + k)) / gamma(1 + k) |> T
+        # if k == 0
+        #     return 1.0
+        # elseif k == 1
+        # elseif k == 2
+        # else
+        #     return (1 / gamma(1 - k)) * ((sqrtpi / 2) / gamma(1.5 + k)) / gamma(1 + k)
+        # end
+        return (1 / gamma(1 - k)) * ((sqrtpi / 2) / gamma(1.5 + k)) / gamma(1 + k)
     else
         j2 = j / 2 + 1
-        return (gamma(j2) / gamma(j2 - k)) * ((sqrtpi / 2) / gamma(1.5 + k)) / gamma(1 + k) |> T
+        # if k == 0
+        #     return 1.0
+        # elseif k == 1
+        # elseif k == 2
+        # else
+        # end
+        return (gamma(j2) / gamma(j2 - k)) * ((sqrtpi / 2) / gamma(1.5 + k)) / gamma(1 + k)
     end
 end
 

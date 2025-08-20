@@ -27,7 +27,7 @@ const nhInitial = 2e-1  # nai
 
 NL_solve = :Optimization
 # # NL_solve = :NonlinearSolve
-# NL_solve = :LeastSquaresOptim
+NL_solve = :LeastSquaresOptim
 if NL_solve == :LeastSquaresOptim
     ADtype = :forward 
     ADtype = :central

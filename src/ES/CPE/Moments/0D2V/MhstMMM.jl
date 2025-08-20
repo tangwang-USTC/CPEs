@@ -61,14 +61,14 @@ function MhsMMM!(Mhst::AbstractVector{T},jvec::Vector{Int},
         k = 0
         for j in jvec
             k += 1
-            Mhst[k] = MhsMMM(j;is_renorm=is_renorm)
+            Mhst[k] = MhsMMM(j,T;is_renorm=is_renorm)
         end
         Mhst[:] *= sum_kbn(nai)
     else
         k = 0
         for j in jvec
             k += 1
-            Mhst[k] = MhsMMM(j;is_renorm=is_renorm) * sum_kbn(nai .* vthi.^j)
+            Mhst[k] = MhsMMM(j,T;is_renorm=is_renorm) * sum_kbn(nai .* vthi.^j)
         end
     end
 end
@@ -77,9 +77,9 @@ end
 function MhsMMM(j::Int64,nai::AbstractVector{T},vthi::AbstractVector{T};is_renorm::Bool=true) where{T}
     
     if prod(isone.(vthi))
-        return MhsMMM(j;is_renorm=is_renorm) * sum_kbn(nai)
+        return MhsMMM(j,T;is_renorm=is_renorm) * sum_kbn(nai)
     else
-        return MhsMMM(j;is_renorm=is_renorm) * sum_kbn(nai .* vthi.^j)
+        return MhsMMM(j,T;is_renorm=is_renorm) * sum_kbn(nai .* vthi.^j)
     end
 end
 
@@ -104,13 +104,13 @@ function MhsMMM!(Mhst::AbstractVector{T},jvec::Vector{Int};is_renorm::Bool=true)
     else
         k = 0
         for j in jvec
-            Mhst[k+1] = MhsMMM(j;is_renorm=is_renorm)
+            Mhst[k+1] = MhsMMM(j,T;is_renorm=is_renorm)
         end
     end
 end
 
 # 0D, []
-function MhsMMM(j::Int;is_renorm::Bool=true)
+function MhsMMM(j::Int,T;is_renorm::Bool=true)
 
     if is_renorm
         return 1.0 |> T 

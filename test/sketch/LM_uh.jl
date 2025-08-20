@@ -44,9 +44,9 @@ using LaTeXStrings
     pLMuh = plot(uhvec1,lvec1, ylabel=ylabel, label=label, line=(3,:solid),
                 xlabel=xlabel,xscale=xscale)
     if xscale == :log10
-        savefig(string("LM_uh1_log.png"))
+        savefig(string("LM_uh1_log.pdf"))
     else
-        savefig(string("LM_uh1.png"))
+        savefig(string("LM_uh1.pdf"))
     end
     display(pLMuh)
     
@@ -54,9 +54,9 @@ using LaTeXStrings
     pLMuh = plot(uhvec3,lvec3, ylabel=ylabel, label=label, line=(3,:solid),
                 xlabel=xlabel,xscale=xscale)
     if xscale == :log10
-        savefig(string("LM_uh3_log.png"))
+        savefig(string("LM_uh3_log.pdf"))
     else
-        savefig(string("LM_uh3.png"))
+        savefig(string("LM_uh3.pdf"))
     end
     display(pLMuh)
 
